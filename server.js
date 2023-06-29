@@ -28,10 +28,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
-app.use((req, res /* , next */) => {
-  res.redirect("/");
-});
-
 app.post("/alerts", (req, res) => {
   const message = req.body;
   console.log("Received message:", message);
