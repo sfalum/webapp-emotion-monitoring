@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Emotion Monitoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="Livestock Monitoring - Monitoring Livestock using drones.">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/chart-device-data.js" type="text/javascript" charset="utf-8"></script>
+    
+<link href="css/style.css" rel="stylesheet"></head>
+<body>
+    
+          
+            
+        
+        <div class="app-main">
+                 <div class="app-main__outer">
+                    <div class="app-main__inner">
+                        <div class="app-page-title">
+                            <div class="page-title-wrapper">
+                                <div class="page-title-heading">
+                                    <div>Emotion Monitoring
+                                        <div class="page-title-subheading">Real-Time Emotion Recognition from Speech on the Edge</div>
+                                    </div>
+                                </div>
+                                  
+                             </div>
+                        </div>    
+                        
+                        <div class="row">
+                            <div class="col-md-6 col-xl-6">
+                                <div class="card mb-3 widget-content">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Device Id </div>
+                                                <div class="widget-subheading" id="device_id"></div>
+                                            </div>                                          
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="col-md-6 col-xl-6">
+                                <div class="card mb-3 widget-content">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Date Time</div>
+                                                <div class="widget-subheading" id="date_time"></div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   
+                        <div class="row">
+
+                            <div class="col-md-12 col-lg-6">
+                                <div class="mb-3 card">
+                                    <div class="card-header-tab card-header">
+                                        <div class="card-header-title">
+                                            <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+                                            Real-Time
+                                        </div>
+                
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" id="tab-eg-55">
+                                            <div class="widget-chart p-3">
+                                                <div style="height: 350px">
+                                                    <canvas id="real-time-chart" style="width: 100%; height: 100%;"></canvas>
+                                                </div>
+                                                <div class="widget-chart-content text-center mt-5">
+                                                    <div class="widget-description mt-0 text-warning">
+                                                       
+                                                        <span class="text-muted opacity-8 pl-1">real-time inference result</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pt-2 card-body">
+                                                <div class="row">
+                                                                                           
+                                                    
+                                                    <div class="col-12">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-outer">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-numbers fsize-3 text-muted" id="current_result"> </div>
+                                                                    </div>
+                                                                    <div class="widget-content-right">
+                                                                        <div class="text-muted opacity-6">Current Result</div>
+                                                                    </div>
+                                                                </div>                                                             
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 col-lg-6">
+                                <div class="mb-3 card">
+                                    <div class="card-header-tab card-header">
+                                        <div class="card-header-title">
+                                            <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
+                                            Emotion Distribution
+                                        </div>
+                                       
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade active show" id="tab-eg-55">
+                                            <div class="widget-chart p-3">
+                                                <div style="height: 350px">
+                                                    <canvas id="emotion-distribution-chart" style="width: 100%; height: 100%;"></canvas>
+                                                </div>
+                                                <div class="widget-chart-content text-center mt-5">
+                                                    <div class="widget-description mt-0 text-warning">
+                                                        
+                                                        <span class="text-muted opacity-8 pl-1">distribution of emotions</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="pt-2 card-body">
+                                                <div class="row">
+                                             <div class="col-12">
+                                                        <div class="widget-content">
+                                                            <div class="widget-content-outer">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-numbers fsize-3 text-muted" id="frequent_emotion"> </div>
+                                                                    </div>
+                                                                    <div class="widget-content-right">
+                                                                        <div class="text-muted opacity-6">Frequent Emotion</div>
+                                                                    </div>
+                                                                </div>                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Messages </div>
+                                                <div class="widget-subheading">Total Messages</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-success" id="total_messages">0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-xl-4">                                
+                                    <div id="alert_box"class="alertClose">
+                                        <span class="closebtn" onclick="var parent = this.parentElement; parent.classList.add('alertClose'); parent.classList.remove('alertShow');">&times;</span>
+                                        <strong>Alert!</strong> <div id="alert_message"></div>
+                                      </div>
+                                
+                            </div>
+
+                            
+                           
+                            <div class="col-md-6 col-xl-4">
+                                <div class="card mb-3 widget-content">
+                                    <div class="widget-content-outer">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading">Alerts</div>
+                                                <div class="widget-subheading">Total Alerts</div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <div class="widget-numbers text-danger"><span id="total_alerts">0</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+               
+                        </div>
+                      
+                       
+                    </div>
+                
+                
+                </div>
+                
+        </div>
+    </div>
+</body>
+</html>
