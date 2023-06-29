@@ -8,7 +8,7 @@ products:
 urlFragment: web-app-visualization
 ---
 
-# live-stock-monitoring
+# webapp-emotion-monitoring
 
 This repo contains code for a web application, which can read data from the edge data from IoT Hub and show the real-time data on the web page.
 
